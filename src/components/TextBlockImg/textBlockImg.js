@@ -1,25 +1,25 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
-import styled from "styled-components"
+import React from "react";
+// import { useStaticQuery, graphql } from "gatsby";
+import BackgroundImage from "gatsby-background-image";
+import styled from "styled-components";
 
 const TextBlockImg = ({ title, children, subtitle, id }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "purple-bg.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000, quality: 90) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     file(relativePath: { eq: "" }) {
+  //       childImageSharp {
+  //         fluid(quality: 100) {
+  //           ...GatsbyImageSharpFluid_withWebp
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
   return (
     <BackgroundImage
       id="perks"
       Tag="section"
-      fluid={data.file.childImageSharp.fluid}
+      // fluid={data.file.childImageSharp.fluid}
     >
       <TextBlockImgWrapper>
         <div className="content-container">
@@ -34,10 +34,12 @@ const TextBlockImg = ({ title, children, subtitle, id }) => {
 
 const TextBlockImgWrapper = styled.section`
   text-align: center;
-  padding: 100px 30px;
+  padding: 30px;
 
   .content-container {
-    max-width: 500px;
+    width: 75vw;
+    height: 100%;
+
 
     @media (min-width: 768px) {
       max-width: 650px;
@@ -59,4 +61,4 @@ const TextBlockImgWrapper = styled.section`
   }
 `
 
-export default TextBlockImg
+export default TextBlockImg;

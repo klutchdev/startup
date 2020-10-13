@@ -2,64 +2,63 @@ import React from "react"
 import styled from "styled-components"
 import Button from "../Button/button"
 
-const Contact = ({ title, subtitle, id }) => {
-  return (
-    <ContactWrapper id="contact">
-      <div className="content-container">
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
-        <form name="contact" netlify>
-          <div className="input-area">
-            <input
-              type="text"
-              name="name"
-              aria-label="Name"
-              required
-              autoComplete="off"
-            />
-            <label className="label-name" for="name">
-              <span className="content-name">Name</span>
-            </label>
-          </div>
+const Contact = ({ title, subtitle, id }) => (
+  
+  <ContactWrapper id={ id }>
+    <div className="content-container">
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+      <form name="contact" netlify="true">
+        <div className="input-area">
+          <input
+            type="text"
+            name="name"
+            aria-label="Name"
+            required
+            autoComplete="off"
+          />
+          <label className="label-name" htmlFor="name">
+            <span className="content-name">Name</span>
+          </label>
+        </div>
 
-          <div className="input-area">
-            <input
-              type="email"
-              name="email"
-              aria-label="Email"
-              required
-              autoComplete="off"
-            />
-            <label className="label-name" for="email">
-              <span className="content-name">Email</span>
-            </label>
-          </div>
+        <div className="input-area">
+          <input
+            type="email"
+            name="email"
+            aria-label="Email"
+            required
+            autoComplete="off"
+          />
+          <label className="label-name" htmlFor="email">
+            <span className="content-name">Email</span>
+          </label>
+        </div>
 
-          <div className="input-area">
-            <textarea
-              type="text"
-              name="message"
-              rows="5"
-              required
-              autoComplete="off"
-              aria-label="Message"
-            />
-            <label className="label-name" for="message">
-              <span className="content-name">Message</span>
-            </label>
-          </div>
+        <div className="input-area">
+          <textarea
+            type="text"
+            name="message"
+            rows="5"
+            required
+            autoComplete="off"
+            aria-label="Message"
+          />
+          <label className="label-name" htmlFor="message">
+            <span className="content-name">Message</span>
+          </label>
+        </div>
 
-          <div className="input-area button-area">
-            <Button label="Send Contact Form" cta="Send" type="submit" />
-          </div>
-        </form>
-      </div>
-    </ContactWrapper>
-  )
-}
+        <div className="input-area button-area">
+          <Button label="Send Contact Form" cta="Send" type="submit" />
+        </div>
+      </form>
+    </div>
+  </ContactWrapper>
+);
 
 const ContactWrapper = styled.section`
-  padding: 100px 30px;
+  padding: 2rem;
 
   .content-container {
     width: 100%;
@@ -86,14 +85,18 @@ const ContactWrapper = styled.section`
     form {
       position: relative;
       overflow: hidden;
+      
 
       .input-area {
         margin-bottom: 40px;
         position: relative;
+        border-radius: 6px;
 
         &.button-area {
+          z-index: 4;
           text-align: center;
           margin-bottom: 0;
+          padding-bottom: 2rem;
         }
       }
 
@@ -106,6 +109,7 @@ const ContactWrapper = styled.section`
         display: block;
         width: 100% !important;
         border: none;
+        border-radius: 4px;
         background-color: #0b132e;
         color: #fff;
         text-transform: uppercase;
@@ -162,4 +166,4 @@ const ContactWrapper = styled.section`
   }
 `
 
-export default Contact
+export default Contact;

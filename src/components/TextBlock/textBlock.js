@@ -43,6 +43,7 @@ const TextBlockWrapper = styled.section`
   text-align: left;
   padding: 60px 20px;
 
+
   @media (min-width: 768px) {
     padding: 80px 30px;
     text-align: center;
@@ -62,4 +63,4 @@ const TextBlockWrapper = styled.section`
   }
 `
 
-export default TextBlock
+export default TextBlock;

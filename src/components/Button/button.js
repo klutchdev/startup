@@ -8,13 +8,12 @@ const Button = props => {
         <ButtonWrapper
           aria-label={props.label}
           className="anchor"
-          as="a"
           href={props.href}
         >
           {props.cta}
         </ButtonWrapper>
       ) : (
-        <ButtonWrapper aria-label={props.label} type={props.type}>
+        <ButtonWrapper ariaLabel={props.label} type={props.type}>
           {props.cta}
         </ButtonWrapper>
       )}
@@ -24,20 +23,22 @@ const Button = props => {
 
 const ButtonWrapper = styled.button`
   position: relative;
-  display: inline-block;
-  padding: 0 20px;
-  height: 50px;
+  vertical-align: middle;
+  padding: 0.5rem 0.25rem 0.25rem 0.5rem;
+  height: 2.5rem;
+  width: 75%;
   text-align: center;
-  line-height: 50px;
-  color: #fff;
-  font-size: 0.85rem;
-  letter-spacing: 0.25rem;
+  ${'' /* line-height: 50px; */}
+  color: #eee;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   text-decoration: none;
   box-sizing: border-box;
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #03a9f4);
+  ${'' /* background: linear-gradient(90deg, #03a9f4, #f441a5); */}
   background-size: 400%;
-  border-radius: 30px;
+  border-radius: 4px;
   border: none;
   z-index: 1;
 
@@ -46,23 +47,23 @@ const ButtonWrapper = styled.button`
     animation: animate 8s linear infinite;
 
     &::before {
-      filter: blur(20px);
+      filter: blur(8px);
       opacity: 1;
-      animation: animate 8s linear;
+      animation: animate 16s linear;
     }
   }
 
   &::before {
     content: "";
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
     z-index: -1;
-    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background: linear-gradient(60deg, #03a9f4, #f441a5, #03a9f4);
     background-size: 400%;
-    border-radius: 40px;
+    border-radius: 4px;
     opacity: 0;
     transition: 0.5s;
   }
@@ -77,4 +78,4 @@ const ButtonWrapper = styled.button`
   }
 `
 
-export default Button
+export default Button;

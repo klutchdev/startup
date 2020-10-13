@@ -1,34 +1,38 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useLocation } from "@reach/router"
+// import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ title, description, lang, image, article }) => {
-  const { pathname } = useLocation()
+const SEO = ({ title, 
+  // description, 
+  lang,
+  image,
+  article }) => {
+  // const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
   const {
     defaultTitle,
-    titleTemplate,
-    defaultDescription,
-    siteUrl,
+    // titleTemplate,
+    // defaultDescription,
+    // siteUrl,
     defaultImage,
-    twitterUsername,
+    // twitterUsername,
   } = site.siteMetadata
 
   const seo = {
     title: title || defaultTitle,
-    description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`,
+    // description: description || defaultDescription,
+    image: `${image || defaultImage}`,
+    // url: `${siteUrl}${pathname}`,
   }
 
   return (
     <Helmet
       htmlAttributes={{ lang }}
       title={seo.title}
-      titleTemplate={titleTemplate}
+      // titleTemplate={titleTemplate}
     >
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
@@ -40,14 +44,14 @@ const SEO = ({ title, description, lang, image, article }) => {
       )}
       {seo.image && <meta property="og:image" content={seo.image} />}
       <meta name="twitter:card" content="summary_large_image" />
-      {twitterUsername && (
-        <meta name="twitter:creator" content={twitterUsername} />
-      )}
-      {seo.title && <meta name="twitter:title" content={seo.title} />}
-      {seo.description && (
+      {/* {twitterUsername && ( */}
+        {/* <meta name="twitter:creator" content={twitterUsername} /> */}
+      {/* )} */}
+      {/* {seo.title && <meta name="twitter:title" content={seo.title} />} */}
+      {/* {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
-      {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {seo.image && <meta name="twitter:image" content={seo.image} />} */}
     </Helmet>
   )
 }
@@ -74,11 +78,11 @@ const query = graphql`
     site {
       siteMetadata {
         defaultTitle: title
-        titleTemplate
+        # titleTemplate
         defaultDescription: description
-        siteUrl: siteUrl
-        defaultImage: image
-        twitterUsername
+        # siteUrl: siteUrl
+        # defaultImage: image
+        # twitterUsername
       }
     }
   }

@@ -1,19 +1,27 @@
 import React, { useState } from "react"
 import links from "../../constants/links"
 import styled from "styled-components"
-import Logo from "../../images/startup-logo.svg"
-import { Link, animateScroll as scroll } from "react-scroll"
+// import Logo from "../../images/startup-logo.svg"
+import { Link } from "react-scroll"
+import Button from "../Button/button"
+import StartupLogo from "../../images/startup-logo"
 
 const Navbar = () => {
   const [isOpen, setNav] = useState(false)
 
   const toggleNav = () => {
-    setNav(isOpen => !isOpen)
+    setNav((isOpen) => !isOpen)
   }
   return (
     <NavWrapper>
-      <div className="masthead flex-container">
-        <img src={Logo} alt="Startup Logo" />
+      <div
+        className={
+          isOpen
+            ? `${"masthead-fixed flex-container"}`
+            : `${"masthead flex-container"}`
+        }
+      >
+        <StartupLogo />
         <button
           className={
             isOpen
@@ -32,55 +40,85 @@ const Navbar = () => {
       <ul
         className={isOpen ? `${"nav-links"} ${"show-nav"}` : `${"nav-links"}`}
       >
-        {links.map((item, index) => {
-          return (
-            <li key={index}>
-              <Link
-                activeClass="active"
-                to={item.text}
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-50}
-              >
-                {item.text}
-              </Link>
-            </li>
-          )
-        })}
+        {links.map((item, index) => (
+          <li key={index}>
+            <Link
+              activeClass="active"
+              to={item.text}
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-50}
+            >
+              {item.text}
+            </Link>
+          </li>
+        ))}
+        <br />
+        <Link to="about" smooth={true} duration={500} offset={-50}>
+          <span className="sr-only">Jump to about</span>
+          <Button cta="Sign up" label="Sign up" anchor={true} href="contact" />
+        </Link>
       </ul>
     </NavWrapper>
   )
 }
 
 const NavWrapper = styled.nav`
-  position: fixed;
-  z-index: 10;
-  top: 0;
+  position: relative;
+  z-index: 5;
   width: 100%;
-  left: 0;
-  right: 0;
+  height: 100%;
   display: flex;
-  padding: 1rem;
+  padding: 0;
   box-sizing: border-box;
-
+  background: linear-gradient(45deg, #030303, #030303ee);
+  background: transparent;
+  
   .masthead {
-    z-index: 3;
+    padding: 0.5rem 0.75rem;
+    z-index: 5;
     width: 100%;
     justify-content: space-between;
+    position: relative;
 
     img {
-      width: 90px;
+      width: 160px;
 
       @media (min-width: 768px) {
-        width: 100px;
+        width: 200px;
       }
 
       @media (min-width: 1200px) {
-        width: 120px;
+        width: 240px;
       }
     }
   }
+
+  .masthead-fixed {
+      padding: 0.5rem 0.75rem;
+      z-index: 5;
+      width: 100%;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      img {
+      width: 160px;
+
+      @media (min-width: 768px) {
+        width: 200px;
+      }
+
+      @media (min-width: 1200px) {
+        width: 240px;
+      }
+    }
+  }
+
+  
 
   .nav-links {
     display: flex;
@@ -91,35 +129,42 @@ const NavWrapper = styled.nav`
     background: linear-gradient(45deg, #060c21, #0d0139);
     margin: 0;
     height: 100%;
+    width: 100%;
     top: 0;
-    bottom: 0;
-    left: 0;
     right: 0;
     transform: translateX(100%);
     transition: 0.3s ease-in;
     list-style: none;
-    padding-left: 0;
+    padding: 1rem;
+
+    @media (min-width: 992px) {
+      width: 40%;
+    }
 
     li {
       list-style: none;
-      font-size: 1.25rem;
-      font-weight: 400;
+      font-size: 1.6rem;
+      font-weight: 300;
       margin-left: 0;
       padding: 0.75rem 0;
       a {
         text-decoration: none;
         text-transform: capitalize;
-        color: #fff;
-        transition: 0.3s;
+        color: #fefefe50;
+        transition: all 0.3s linear;
 
         &.active {
-          color: #e609b5;
+          color: dodgerblue;
+          transition: all 0.3s linear;
         }
       }
       &:hover {
         cursor: pointer;
+        color: #fefefe;
+        transition: all 0.3s linear;
         a {
-          color: #e609b5;
+          color: #fefefe;
+          transition: all 0.3s linear;
         }
       }
     }
@@ -132,23 +177,24 @@ const NavWrapper = styled.nav`
   .toggle-btn {
     width: 40px;
     height: 40px;
-    padding: 5px;
+    padding: 0.rem;
     background-color: transparent;
     border: none;
 
     span {
       display: block;
-      width: 30px;
-      height: 2px;
+      width: 2.25rem;
+      height: 0.1rem;
       background-color: #fff;
       transition: 0.2s ease-in;
+      border-radius: 10rem;
 
       &:nth-child(1) {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
       }
 
       &:nth-child(3) {
-        transform: translateY(5px);
+        transform: translateY(8px);
       }
     }
 
@@ -170,13 +216,10 @@ const NavWrapper = styled.nav`
     }
   }
 
-  @media (min-width: 992px) {
-    .masthead {
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .toggle-btn {
+  /* @media (min-width: 992px) {
+    width: 100%;
+  }
+     /* .toggle-btn {
       display: none;
     }
 
@@ -191,7 +234,7 @@ const NavWrapper = styled.nav`
       li {
         margin-left: 1rem;
       }
-    }
+    } */
   }
 `
 

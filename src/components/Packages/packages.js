@@ -1,11 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 
-const Packages = ({ title, para, children }) => {
+const Packages = ({ title, para, description, children }) => {
   return (
     <PackagesWrapper>
       <div className="text-area">
         <h2>{title}</h2>
+        <p>{ description }</p>
         <p>{para}</p>
       </div>
       <div className="flex-container">{children}</div>
@@ -14,7 +15,7 @@ const Packages = ({ title, para, children }) => {
 }
 
 const PackagesWrapper = styled.section`
-  padding: 100px 30px;
+  padding: 20px 30px;
   text-align: center;
 
   .text-area {

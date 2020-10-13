@@ -2,65 +2,21 @@ import React from "react"
 import Layout from "../components/layout"
 import Banner from "../components/Banner/banner"
 import TextBlock from "../components/TextBlock/textBlock"
-import TextBlockImg from "../components/TextBlockImg/textBlockImg"
-import Perk from "../components/Perk/perk"
-import Button from "../components/Button/button"
 import Packages from "../components/Packages/packages"
 import Package from "../components/Package/package"
 import Contact from "../components/Contact/contact"
-import { Link } from "react-scroll"
-
-import perk1Img from "../images/speed.svg"
-import perk2Img from "../images/piggy-bank.svg"
-import perk3Img from "../images/friendly-staff.svg"
-
 import { IconContext } from "react-icons"
-import { MdDone, MdClear } from "react-icons/md"
+import { MdDone } from "react-icons/md"
+
+import "../components/global.css"
 
 export default () => (
   <>
     <Layout>
       <Banner />
-      <TextBlock
-        id="about"
-        title="Developing a new business is never easy, but Startup is here to help"
-        paragraph="With a super-fast Gatsby powered website you have the perfect platform to get your idea off the ground. Its the perfect template to help turn your idea into a reality."
-      >
-        <Link to="perks" smooth={true} duration={500}>
-          <Button label="Tell Me More" cta="Tell Me More!" />
-        </Link>
-      </TextBlock>
-      <TextBlockImg
-        id="perks"
-        title="We have the tools to help you suceed"
-        subtitle="Startup is perfect for helping to to start and grow your business. As
-          you begin to gain new clients and expand you will see the benefits of
-          a super-fast Gatsby website"
-      >
-        <div className="flex-container trio-block">
-          <Perk
-            img={perk1Img}
-            alt="Super fast speed increases"
-            title="Speedy"
-            content="Super-fast response times ensure your business is not affected"
-          />
-          <Perk
-            img={perk2Img}
-            alt="Great savings to be made"
-            title="Affordable"
-            content="A choice of packages to suit every business type and size"
-          />
-          <Perk
-            img={perk3Img}
-            alt="Super fast speed increases"
-            title="Friendly"
-            content="Advisors who are available 24/7, all with exprt knowledge"
-          />
-        </div>
-      </TextBlockImg>
       <Packages
-        title="Our Packages"
-        para="Choose the perfect solution for you. With benefits to suit all budgets Startup can offer amazing value and expert advice"
+        title="CardPointe"
+        para="CardPointe is everything a small to midsize needs to simply and securely integrate, accept and manage payments."
       >
         <IconContext.Provider
           value={{
@@ -69,80 +25,105 @@ export default () => (
             style: { verticalAlign: "middle", marginRight: "5px" },
           }}
         >
-          <Package title="Standard">
+          <Package
+            title="Integrations"
+            description="Easily add secure payment acceptance capabilities into any application"
+          >
             <ul>
               <li>
-                <MdDone />1 User
+                <u>ISV Integrations</u>
               </li>
               <li>
                 <MdDone />
-                1GB Storage
+                Partnership
               </li>
-              <li className="linethrough">
-                <MdClear color="red" />
-                Dedicated Advisor
+              <li>
+                <u>Developer Tools</u>
               </li>
-              <li className="linethrough">
-                <MdClear color="red" />
-                24/7 Support
+              <li>
+                <MdDone />
+                APIs
+              </li>
+              <li>
+                <MdDone />
+                Support
+              </li>
+              <li>
+                <u>Enterprise Solutions</u>
+              </li>
+              <li>
+                <MdDone />
+                Oracle
+              </li>
+              <li>
+                <MdDone />
+                SAP
               </li>
             </ul>
-            <Link to="contact" smooth={true} duration={500}>
-              <Button label="I want this" cta="I want this!" />
-            </Link>
           </Package>
-          <Package title="Hyper" active={true}>
+
+          <Package
+            title="Security"
+            description="Protect transactions and reduce PCI scope with the most effective security solutions in the industry"
+            // active={true}
+          >
             <ul>
               <li>
                 <MdDone />
-                24/7 Support
+                Tokenization
               </li>
               <li>
                 <MdDone />
-                Dedicated Advisor
+                P2PE
               </li>
               <li>
                 <MdDone />
-                Unlimited Storage
-              </li>
-              <li>
-                <MdDone />
-                Unlimited Users
+                PCI Compliance
               </li>
             </ul>
-            <Link to="contact" smooth={true} duration={500}>
-              <Button label="I want this" cta="I want this!" />
-            </Link>
           </Package>
-          <Package title="Super">
+
+          <Package
+            title="Reporting"
+            description="Everything a business needs to view and manage transactions."
+          >
             <ul>
               <li>
                 <MdDone />
-                10 Users
+                Full Transaction Lifecycle Reporting
               </li>
               <li>
                 <MdDone />
-                500GB Storage
+                Mobile Optimization
               </li>
               <li>
                 <MdDone />
-                Advice Support
+                Multiple Merchant Locations
               </li>
-              <li className="linethrough">
-                <MdClear color="red" />
-                Dedicated Advisor
+              <li>
+                <MdDone />
+                Automatic Reconciliation
+              </li>
+              <li>
+                <MdDone />
+                User Permission Management
               </li>
             </ul>
-            <Link to="contact" smooth={true} duration={500}>
-              <Button label="I want this" cta="I want this!" />
-            </Link>
           </Package>
         </IconContext.Provider>
       </Packages>
+
+      <TextBlock
+        id="about"
+        title="Looking for an affordable payment solution?"
+        paragraph="If you’re in the Bay Area and you’re looking for a payment solution — we dare say you’ve found the best place.For 15 years we’ve been a part of the Bay Area community and have helped hundreds of local businesses with their payment needs.
+          Globally, CardConnect has helped more than 230,000 businesses, ranging from Fortune 500 companies to youthful startups."
+      />
+
       <Contact
         id="contact"
-        title="Contact Startup today and see how we can help your business grow"
-        subtitle="Every second counts when you're looking to get your new business started. Drop Startup a message and one of our representatives will be in contact"
+        title="We would love to hear from you"
+        subtitle="Simply let us know what you need help with."
       />
     </Layout>
   </>

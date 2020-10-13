@@ -1,14 +1,23 @@
 export default [
   {
-    path: "/",
-    text: "about",
+    path: "/countertop",
+    text: "COUNTERTOP TERMINAL",
   },
   {
-    path: "/",
-    text: "packages",
+    path: "/virtual",
+    text: "VIRTUAL TERMINAL",
   },
   {
-    path: "/",
-    text: "contact",
+    path: "/integrations",
+    text: "INTEGRATIONS + ADD ONS",
   },
+  {
+    path: "/hosted",
+    text: "HOSTED PAYMENT PAGE",
+  },
+  {
+    path: "/mobile",
+    text: "MOBILE APP",
+  },
+
 ]

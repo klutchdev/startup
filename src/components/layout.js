@@ -2,9 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import "typeface-gothic-a1"
 import "./reset.css"
-import Navbar from "../components/Navbar/navbar"
+import Navbar from "./Navbar/navbar"
 import Footer from "../components/Footer/footer"
 import SEO from "../components/Seo/seo"
+import "../components/global.css"
 
 const Layout = ({ children }) => {
   return (
@@ -23,9 +24,8 @@ const LayoutWrapper = styled.div`
   }
 
   font-family: "Gothic A1", sans-serif;
-  color: #fff;
-  /* background-color: #060c21; */
-  background: linear-gradient(45deg, #060c21, #0d0139);
+  color: #eeeeeecc;
+  background-color: #080c21;
 
   h1,
   h2,
@@ -33,13 +33,13 @@ const LayoutWrapper = styled.div`
   h4,
   h5,
   h6 {
-    font-weight: 900;
+    ${"" /* font-weight: 900; */}
     line-height: 1.4;
   }
 
   h1,
   h2 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: -1px;
     margin: 1rem 0;
@@ -59,7 +59,7 @@ const LayoutWrapper = styled.div`
   }
 
   p {
-    font-size: 1rem;
+    font-size: 1.15rem;
     line-height: 1.45;
     margin: 1rem 0;
 
@@ -75,8 +75,9 @@ const LayoutWrapper = styled.div`
 
   .content-container {
     margin: 0 auto;
-    width: 100%;
-    max-width: 500px;
+    padding: 0;
+    width: 75vw;
+    height: 100%;
 
     @media (min-width: 1080px) {
       max-width: 650px;
@@ -97,7 +98,7 @@ const LayoutWrapper = styled.div`
   }
 
   .section-padding {
-    padding: 100px 30px;
+    padding: 6rem 30px;
   }
 
   .text-center {

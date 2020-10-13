@@ -1,7 +1,7 @@
 {
-  "name": "startup",
-  "private": false,
-  "description": "A startup template perfect for brochure sites and small businesses",
+  "name": "card-connect-sf",
+  "private": true,
+  "description": "card connect sf prototype",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -36,13 +36,6 @@
     "typeface-gothic-a1": "0.0.61"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bagseye/startup"
-  },
-  "bugs": {
-    "url": "https://github.com/bagseye/startup/issues"
+    "prettier": "^2.1.2"
   }
 }

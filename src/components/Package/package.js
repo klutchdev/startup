@@ -1,11 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 
-const Package = ({ title, children, active }) => {
+const Package = ({ title, description, children, active }) => {
   return (
     <PackageWrapper className={active ? "active" : "not-active"}>
       <div className="content">
         <h2>{title}</h2>
+        <p>{description}</p>
         {children}
       </div>
     </PackageWrapper>
@@ -28,15 +29,21 @@ const PackageWrapper = styled.article`
     background: #051342;
     color: #fff;
     text-align: center;
-    padding: 1.5rem;
-    border-radius: 4px;
+    padding: 1rem;
+    border-radius: 10px;
     box-shadow: 0px 0px 22px 7px rgba(0, 0, 0, 0.25);
+
+    p {
+      margin: 0.5rem 0;
+      line-height: 1.75rem;
+    }
 
     h2 {
       background: -webkit-linear-gradient(45deg, #f441a5, #03a9f4);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    
 
     ul {
       padding-left: 0;
@@ -44,8 +51,10 @@ const PackageWrapper = styled.article`
       margin: 2.5rem 0;
 
       li {
-        line-height: 26px;
-        padding-left: 0.5rem;
+        line-height: 1.5rem;
+        padding-left: 0.15rem;
+        text-align: left;
+        font-size: 0.9rem;
       }
 
       .linethrough {

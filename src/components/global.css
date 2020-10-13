@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "MarkPro";
+  src: url("../../static/MarkPro.woff") format("woff");
+}
+
+html {
+  font-weight: 300;
+  font-family: 'MarkPro';
+}
+
+.cc-logo {
+  font-weight: 300;
+  font-family: 'MarkPro';
+  color: #21B7C4;
+}
